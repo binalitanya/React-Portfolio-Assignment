@@ -1,0 +1,109 @@
+html{
+  overflow-x: hidden;
+}
+
+.hero{
+  background-color: #404040;
+}
+
+.green-text{
+  color: #bdff00;
+}
+
+.green-button{
+  background-color: #bdff00;
+  
+}
+
+.white-text{
+  color: white
+}
+
+
+.font-style{
+  font-family:"Times New Roman"
+}
+
+
+.box {
+  width: 400px;
+  height: 300px;
+  
+ 
+}
+
+.center{
+      text-align: center;
+}
+
+#navbar_logo{
+  width: 7rem !important;
+  min-height: 3rem !important;
+  max-height: 1.75rem;
+  height: auto;
+}
+
+.img{
+  width:"800px";
+  height:"400px";
+  border-radius: 20%;
+}
+
+.hero-button{
+  border-radius: 10px;
+  padding: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  /* margin-bottom: 5rem; */
+}
+
+
+.card{
+  border-radius: 10px;
+  box-shadow: 0px 5px 8px 1px;
+  height: 20rem;
+}
+
+.skills{
+  background-color: #404040;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* Progress Bars */
+
+@keyframes growProgressBar {
+  0%, 33% { --pgPercentage: 0; }
+  100% { --pgPercentage: var(--value); }
+}
+
+@property --pgPercentage {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+div[role="progressbar"] {
+  --size: 10rem;
+  --fg: #bdff00;
+  --bg: #ffffff;
+  --pgPercentage: var(--value);
+  animation: growProgressBar 3s 1 forwards;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: 
+    radial-gradient(closest-side, #404040 80%, transparent 0 99.9%, #404040 0),
+    conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0)
+    ;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(var(--size) / 8);
+  color: var(--fg);
+}
+
+div[role="progressbar"]::before {
+  counter-reset: percentage var(--value);
+  content: counter(percentage) '%';
+}
